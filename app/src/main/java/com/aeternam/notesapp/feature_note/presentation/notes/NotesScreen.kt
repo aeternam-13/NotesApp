@@ -38,7 +38,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.aeternam.notesapp.feature_note.presentation.notes.components.NoteItem
 import com.aeternam.notesapp.feature_note.presentation.notes.components.OrderSection
-import com.aeternam.notesapp.feature_note.presentation.util.Screen
+import com.aeternam.notesapp.feature_note.presentation.util.Screens
 import kotlinx.coroutines.launch
 
 @Composable
@@ -53,7 +53,7 @@ fun NotesScreen(
     Scaffold(snackbarHost = { SnackbarHost(snackHostState) }, floatingActionButton = {
         FloatingActionButton(
             onClick = {
-                navController.navigate(Screen.AddEditNoteScreen.route)
+                navController.navigate(Screens.AddEditNoteScreen.route)
             }
 
         ) {
@@ -106,7 +106,7 @@ fun NotesScreen(
                             .padding(all = 8.dp)
                             .clickable {
                                 navController.navigate(
-                                    Screen.AddEditNoteScreen.route + "?noteId=${note.id}&noteColor=${note.color}"
+                                    Screens.AddEditNoteScreen.route + "?noteId=${note.id}&noteColor=${note.color}"
                                 )
                             },
 
