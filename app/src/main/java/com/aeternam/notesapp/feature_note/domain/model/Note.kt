@@ -1,9 +1,6 @@
 package com.aeternam.notesapp.feature_note.domain.model
 
-
 import androidx.compose.ui.graphics.Color
-import androidx.core.graphics.ColorUtils
-import com.aeternam.notesapp.ui.theme.*
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -24,7 +21,6 @@ data class Note(
                 Color(0xFF6AE78C),
                 Color(0xFFD896FF),
                 Color(0xFFE2D528),
-
             )
 
     }

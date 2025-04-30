@@ -26,7 +26,6 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             NotesAppTheme {
-
                 val navController = rememberNavController()
 
                 NavHost(
@@ -36,22 +35,6 @@ class MainActivity : ComponentActivity() {
                     ) {
                     composable(route = Screens.NotesScreen.route) {
                         NotesScreen(navController = navController)
-                    }
-
-                    composable(
-                        route = Screens.TestNav2.route + "?cadena={cadena}",
-                        arguments = listOf(
-                            navArgument(name = "cadena") {
-                                type = NavType.StringType
-                                defaultValue = ""
-                            })
-                    ) {
-                        val cadena = it.arguments?.getString("cadena") ?: "default"
-                        TestNav2(navController = navController ,cadena = cadena )
-                    }
-
-                    composable(route = Screens.TestNav.route) {
-                        TestNav(navController = navController)
                     }
 
                     composable(

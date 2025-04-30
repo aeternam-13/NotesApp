@@ -44,7 +44,6 @@ import kotlinx.coroutines.launch
 @Composable
 fun NotesScreen(
     navController: NavController, viewModel: NotesViewModel = hiltViewModel()
-
 ) {
     val state = viewModel.state.value
     val scope = rememberCoroutineScope()

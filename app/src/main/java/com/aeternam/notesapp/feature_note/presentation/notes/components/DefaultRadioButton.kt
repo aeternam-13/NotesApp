@@ -14,10 +14,10 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun DefaultRadioButton(
+    modifier: Modifier = Modifier,
     text: String,
     selected : Boolean,
     onSelect: () -> Unit,
-    modifier: Modifier = Modifier
 ){
     return Row(
         modifier = modifier,
