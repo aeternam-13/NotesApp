@@ -1,11 +1,9 @@
 package com.aeternam.notesapp.feature_note.presentation
 
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Text
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -13,8 +11,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.aeternam.notesapp.feature_note.presentation.add_edit_note.AddEditNoteScreen
 import com.aeternam.notesapp.feature_note.presentation.notes.NotesScreen
-import com.aeternam.notesapp.feature_note.presentation.testnav.TestNav
-import com.aeternam.notesapp.feature_note.presentation.testnav.TestNav2
 import com.aeternam.notesapp.feature_note.presentation.util.Screens
 import com.aeternam.notesapp.ui.theme.NotesAppTheme
 import dagger.hilt.android.AndroidEntryPoint
