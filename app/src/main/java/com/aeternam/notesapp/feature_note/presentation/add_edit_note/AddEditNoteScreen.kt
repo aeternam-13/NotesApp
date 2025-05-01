@@ -16,6 +16,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
@@ -84,15 +86,15 @@ fun AddEditNoteScreen(
                 .fillMaxSize()
                 .background(noteBackgroundAnimation.value)
                 .padding(innerPadding)
-                .padding(16.dp)
+
         ) {
-            Row(
+            LazyRow(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(vertical = 16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Note.noteColors.forEach {
+                items(Note.noteColors) {
                     val colorInt = it.toArgb()
                     Box(
                         modifier = Modifier
@@ -113,7 +115,7 @@ fun AddEditNoteScreen(
                                     )
                                 }
                                 viewModel.onEvent(AddEditNoteEvent.ChangeColor(colorInt))
-                            }
+                            }.padding(horizontal = 2.dp)
 
                     )
 
@@ -121,30 +123,32 @@ fun AddEditNoteScreen(
 
 
             }
-            Spacer(modifier = Modifier.height(8.dp))
-            TransparentHintTextField(
-                text = titleState.text,
-                hint = titleState.hint,
-                singleLine = true,
-                onValueChange = {
-                    viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))
-                },
-                onFocusChange = { viewModel.onEvent(AddEditNoteEvent.ChangeTitleFocus(it)) },
-                isHintVisible = titleState.isHintVisible,
-                textStyle = MaterialTheme.typography.titleLarge
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            TransparentHintTextField(
-                text = contentState.text,
-                hint = contentState.hint,
-                modifier = Modifier.fillMaxHeight(),
-                onValueChange = {
-                    viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
-                },
-                onFocusChange = { viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it)) },
-                isHintVisible = contentState.isHintVisible,
-                textStyle = MaterialTheme.typography.bodyLarge
-            )
+            Column(modifier = Modifier.padding(16.dp)) {
+                Spacer(modifier = Modifier.height(8.dp))
+                TransparentHintTextField(
+                    text = titleState.text,
+                    hint = titleState.hint,
+                    singleLine = true,
+                    onValueChange = {
+                        viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))
+                    },
+                    onFocusChange = { viewModel.onEvent(AddEditNoteEvent.ChangeTitleFocus(it)) },
+                    isHintVisible = titleState.isHintVisible,
+                    textStyle = MaterialTheme.typography.titleLarge
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                TransparentHintTextField(
+                    text = contentState.text,
+                    hint = contentState.hint,
+                    modifier = Modifier.fillMaxHeight(),
+                    onValueChange = {
+                        viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
+                    },
+                    onFocusChange = { viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it)) },
+                    isHintVisible = contentState.isHintVisible,
+                    textStyle = MaterialTheme.typography.bodyLarge
+                )
+            }
         }
     }
 }

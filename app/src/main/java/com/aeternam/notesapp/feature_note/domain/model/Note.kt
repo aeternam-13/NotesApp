@@ -21,6 +21,7 @@ data class Note(
                 Color(0xFF6AE78C),
                 Color(0xFFD896FF),
                 Color(0xFFE2D528),
+                Color(0xFF28C6E2),
             )
 
     }
